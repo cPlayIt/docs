@@ -509,11 +509,11 @@ Sometimes you may wish to "un-delete" a soft deleted model. To restore a soft de
 
 You may also use the `restore` method in a query to quickly restore multiple models. Again, like other "mass" operations, this will not fire any model events for the models that are restored:
 
-    App\Flight::withTrashed()
+    App\Flight::onlyTrashed()
             ->where('airline_id', 1)
             ->restore();
 
-Like the `withTrashed` method, the `restore` method may also be used on [relationships](/docs/{{version}}/eloquent-relationships):
+Like the `onlyTrashed` method, the `restore` method may also be used on [relationships](/docs/{{version}}/eloquent-relationships):
 
     $flight->history()->restore();
 
